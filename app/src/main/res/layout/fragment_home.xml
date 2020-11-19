@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,8 +9,38 @@
 
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/CompanyName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TextView" />
+        android:layout_margin="20dp"
+        android:fontFamily="serif"
+        android:text="@string/company_name"
+        android:textAlignment="center"
+        android:textSize="@dimen/Title_size"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/about"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:fontFamily="serif"
+        android:text="@string/about"
+        android:textAlignment="center"
+        android:textSize="@dimen/header_size" />
+
+    <TextView
+        android:id="@+id/aboutText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:fontFamily="serif"
+        android:text="@string/about_text"
+        android:textSize="@dimen/text_size" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="match_parent"
+        android:layout_height="147dp"
+        tools:src="@tools:sample/backgrounds/scenic" />
 </LinearLayout>
