@@ -3,23 +3,30 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_home">
-
+    app:startDestination="@id/homeFragment">
     <fragment
-        android:id="@+id/nav_home"
-        android:name="com.example.androiddevfinal_conaxapp.ui.home.HomeFragment"
-        android:label="@string/menu_home"
+        android:id="@+id/homeFragment"
+        android:name="com.example.androiddevfinal_conaxapp.homeFragment"
+        android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
-
     <fragment
-        android:id="@+id/nav_gallery"
-        android:name="com.example.androiddevfinal_conaxapp.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
-
+        android:id="@+id/locationsFragment"
+        android:name="com.example.androiddevfinal_conaxapp.locationsFragment"
+        android:label="fragment_locations"
+        tools:layout="@layout/fragment_locations" />
     <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.example.androiddevfinal_conaxapp.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        android:id="@+id/gamesFragment"
+        android:name="com.example.androiddevfinal_conaxapp.gamesFragment"
+        android:label="fragment_games"
+        tools:layout="@layout/fragment_games" />
+    <fragment
+        android:id="@+id/jobsFragment"
+        android:name="com.example.androiddevfinal_conaxapp.jobsFragment"
+        android:label="fragment_jobs"
+        tools:layout="@layout/fragment_jobs" />
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.example.androiddevfinal_conaxapp.settingsFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" />
 </navigation>
