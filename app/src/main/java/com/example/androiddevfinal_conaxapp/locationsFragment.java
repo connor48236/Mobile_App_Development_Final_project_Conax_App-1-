@@ -3,10 +3,14 @@ package com.example.androiddevfinal_conaxapp;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -59,6 +63,25 @@ public class locationsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_locations, container, false);
+        View view = inflater.inflate(R.layout.fragment_locations, container, false);
+
+        //connect This view to the recyclerView in the fragment
+        RecyclerView recyclerView = view.findViewById(R.id.recycler);
+
+        //Creates a arrayList of locations that populates the recyclerView
+        ArrayList<LocationItem> locationItems = new ArrayList<>();
+
+        //Adding add the items to the array
+        locationItems.add(new LocationItem("Montreal", "2849 Oakridge Lane", "This is our Montreal location"));
+        locationItems.add(new LocationItem("Los Angeles", "2663 Hilltop Street", "This is our Los Angeles location"));
+        locationItems.add(new LocationItem("London", "1669 Despard Street", "This is our London location"));
+        locationItems.add(new LocationItem("Tokyo", "3382 Irving Road", "This is our tokyo location"));
+
+        //Adds a layout manager to the recyclerView
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
+
+        //Sets the adapter for the recyclerView
+        recyclerView.setAdapter(new CustomLocationViewAdapter(locationItems));
+        return view;
     }
 }
