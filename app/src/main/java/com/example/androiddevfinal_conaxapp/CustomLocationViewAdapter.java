@@ -1,8 +1,10 @@
 package com.example.androiddevfinal_conaxapp;
 
+import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -32,6 +34,7 @@ public class CustomLocationViewAdapter extends RecyclerView.Adapter<CustomLocati
     public void onBindViewHolder(@NonNull CustomLocationViewAdapter.CustomViewHolder holder, int position) {
         LocationItem locationItem = locationItems.get(position);
         holder.city.setText(locationItem.getCity());
+        holder.image.setImageResource(locationItem.getImage());
         holder.address.setText(locationItem.getAddress());
         holder.description.setText(locationItem.getDescription());
     }
@@ -48,12 +51,14 @@ public class CustomLocationViewAdapter extends RecyclerView.Adapter<CustomLocati
         protected TextView city;
         protected TextView address;
         protected TextView description;
+        protected ImageView image;
 
         public CustomViewHolder(@NonNull View itemView) {
             super(itemView);
             this.city = itemView.findViewById(R.id.City);
             this.address = itemView.findViewById(R.id.Address);
             this.description = itemView.findViewById(R.id.Description);
+            this.image = itemView.findViewById(R.id.Image);
         }
     }
 }

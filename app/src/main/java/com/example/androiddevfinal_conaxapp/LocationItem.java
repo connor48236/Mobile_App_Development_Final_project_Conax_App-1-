@@ -1,12 +1,16 @@
 package com.example.androiddevfinal_conaxapp;
 
+import android.media.Image;
+
 public class LocationItem {
     private String city;
+    private int imageURL;
     private String address;
     private String description;
 
-    public LocationItem(String city, String address, String description) {
+    public LocationItem(String city,int imageURL, String address, String description) {
         this.city = city;
+        this.imageURL = imageURL;
         this.address = address;
         this.description = description;
     }
@@ -33,6 +37,14 @@ public class LocationItem {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public int getImage() {
+        return imageURL;
+    }
+
+    public void setImage(int image) {
+        this.imageURL = imageURL;
     }
 
     @Override

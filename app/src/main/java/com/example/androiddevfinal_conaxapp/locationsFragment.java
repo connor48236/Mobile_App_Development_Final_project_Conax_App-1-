@@ -72,10 +72,10 @@ public class locationsFragment extends Fragment {
         ArrayList<LocationItem> locationItems = new ArrayList<>();
 
         //Adding add the items to the array
-        locationItems.add(new LocationItem("Montreal", "2849 Oakridge Lane", "This is our Montreal location"));
-        locationItems.add(new LocationItem("Los Angeles", "2663 Hilltop Street", "This is our Los Angeles location"));
-        locationItems.add(new LocationItem("London", "1669 Despard Street", "This is our London location"));
-        locationItems.add(new LocationItem("Tokyo", "3382 Irving Road", "This is our tokyo location"));
+        locationItems.add(new LocationItem("Montreal", R.drawable.conax_office_montreal, "2849 Oakridge Lane", "This is our Montreal location"));
+        locationItems.add(new LocationItem("Los Angeles", R.drawable.conax_office_los_angles,"2663 Hilltop Street", "This is our Los Angeles location"));
+        locationItems.add(new LocationItem("London", R.drawable.conax_office_london,"1669 Despard Street", "This is our London location"));
+        locationItems.add(new LocationItem("Tokyo", R.drawable.conax_office_tokyo,"3382 Irving Road", "This is our tokyo location"));
 
         //Adds a layout manager to the recyclerView
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
