@@ -13,6 +13,8 @@
     <string name="jobs">Jobs</string>
     <string name="settings">Settings</string>
 
+    <string name="locationButton">View Location On Maps</string>
+
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
