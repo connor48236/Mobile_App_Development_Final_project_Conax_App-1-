@@ -12,9 +12,11 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -83,10 +85,39 @@ public class jobsFragment extends Fragment {
 
         //Creates a array list of job items
         ArrayList<JobItem> jobItemArrayList = new ArrayList<>();
+        jobItemArrayList.add(new JobItem("Lead Programmer", "As a lead Programmer you will take charge of the team and lead them to success. You will" +
+                "be one of the most skilled and knowledgeable programmers at conax and therefore will have the task of managing other programmers and lead the team",
+                "* At least 7+ years in C++ programming \n" +
+                        "* A good understanding in bother Unity and Unreal \n" +
+                        "* Amazing energy and team leading experience \n" +
+                        "* A good understanding in conax development tactics"));
+        jobItemArrayList.add(new JobItem("Graphic Designer", "As a Graphic designer at Conax you will be creating all the art for the games we create. You will be " +
+                "Designing this such as characters, scenery, map design and more!",
+                "* Expertise in Adobe PhotoShop \n" +
+                        "* Expertise in Adobe Illustrator \n" +
+                        "* 3+ years in relevant industry experience \n" +
+                        "* Self-Motivation and a good team player"));
+        jobItemArrayList.add(new JobItem("programmer", "As a programmer at conax you will work on the core game play mechanics and create most of the game with your" +
+                "team through code. you will work on things such as character movement, game play mechanics, physics, UI elements and much more",
+                "* At least 3+ years of c++ programming \n " +
+                        "* At least 1+ years in java programming \n" +
+                        "* A good understanding of code concepts \n " +
+                        "* A good altitude and motivation \n" +
+                        "* A good team player"));
 
+        listView.setAdapter(new CustomJobListAdapter(getContext(), jobItemArrayList));
+        //This will show on click of the job item in the list
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Log.d("test", "Test" + position);
+
+
+            }
+        });
 
         //This will find and set up the email button for the job
-        Button emailButton = view.findViewById(R.id.email);
+        Button emailButton = view.findViewById(R.id.jobEmail);
         //On click of the button it will bring you to email about the job
         emailButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -95,8 +126,8 @@ public class jobsFragment extends Fragment {
                 Intent intent = new Intent(Intent.ACTION_SENDTO);
                 intent.setData(Uri.parse("mailto:"));
                 intent.putExtra(Intent.EXTRA_EMAIL, emailAddresses);
-                intent.putExtra(Intent.EXTRA_SUBJECT, "");
-                intent.putExtra(Intent.EXTRA_TEXT, "");
+                intent.putExtra(Intent.EXTRA_SUBJECT, "Job application for ___");
+                intent.putExtra(Intent.EXTRA_TEXT, "Hello Conax management, My name is ___ And this is my resume:");
                 if (intent.resolveActivity(getActivity().getPackageManager()) != null) {
                     startActivity(intent);
                 } else {
@@ -104,6 +135,7 @@ public class jobsFragment extends Fragment {
                 }
             }
         });
+
 
         return view;
     }

@@ -3,10 +3,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".jobsFragment">
+    tools:context=".jobsFragment"
+    android:orientation="vertical">
 
     <ListView
         android:id="@+id/JobListView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+    </ListView>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="10">
+
+        <Button
+            android:id="@+id/jobEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Email"
+            android:textAlignment="center"
+            android:textSize="@dimen/Title_size" />
+    </ScrollView>
 </LinearLayout>
