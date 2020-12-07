@@ -2,13 +2,18 @@ package com.example.androiddevfinal_conaxapp.items;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.viewpager.widget.ViewPager;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.androiddevfinal_conaxapp.R;
+import com.example.androiddevfinal_conaxapp.fragments.gamesFragment;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -63,8 +68,36 @@ public class GameHostFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_game_host, container, false);
 
-
+        CustomGameViewPagerAdapter adapter = new CustomGameViewPagerAdapter(getChildFragmentManager());
+        ViewPager viewPager = view.findViewById(R.id.gameHost);
+        viewPager.setAdapter(adapter);
 
         return view;
+    }
+
+    //Creates the customViewPagerAdater
+    public class CustomGameViewPagerAdapter extends FragmentPagerAdapter{
+        public CustomGameViewPagerAdapter(@NonNull FragmentManager fm){
+            super(fm);
+        }
+
+        @NonNull
+        @Override
+        //This is what goes inside each view
+        public Fragment getItem(int position) {
+            switch (position){
+                case 0: return new gamesFragment().newInstance("Universe Wars", R.drawable.universe_wars);
+                case 1: return new gamesFragment().newInstance("The Land Of Asuke", R.drawable.the_land_of_asuke);
+                case 2: return new gamesFragment().newInstance("The Legend of the Wise One", R.drawable.wise_one);
+                case 3: return new gamesFragment().newInstance("Pirates Of Cuba", R.drawable.pirates_of_cuba);
+                default: return new gamesFragment().newInstance("Game Not Found", R.drawable.ic_baseline_error_24);
+            }
+        }
+
+        @Override
+        //This shows how many views there are
+        public int getCount() {
+            return 4;
+        }
     }
 }

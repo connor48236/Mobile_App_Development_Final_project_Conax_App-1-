@@ -65,10 +65,12 @@ public class gamesFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_games, container, false);
 
+        //This connects the pram to the title of the game in the layout
         if (mParam1 != null){
             TextView gameTitle = view.findViewById(R.id.gameTitle);
             gameTitle.setText(mParam1);
         }
+        //This connects the pram to the image in the layout
         if (mParam2 != null){
             ImageView gameImage = view.findViewById(R.id.gameImage);
             gameImage.setImageDrawable(getContext().getDrawable(mParam2));
