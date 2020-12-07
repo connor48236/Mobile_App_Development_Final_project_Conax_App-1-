@@ -1,4 +1,4 @@
-package com.example.androiddevfinal_conaxapp;
+package com.example.androiddevfinal_conaxapp.items;
 
 import android.media.Image;
 

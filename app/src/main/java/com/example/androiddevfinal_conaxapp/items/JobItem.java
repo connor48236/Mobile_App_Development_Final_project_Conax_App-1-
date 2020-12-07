@@ -1,4 +1,4 @@
-package com.example.androiddevfinal_conaxapp;
+package com.example.androiddevfinal_conaxapp.items;
 
 public class JobItem {
     private String jobName;

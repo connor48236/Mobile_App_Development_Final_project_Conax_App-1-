@@ -1,6 +1,5 @@
-package com.example.androiddevfinal_conaxapp;
+package com.example.androiddevfinal_conaxapp.Adapters;
 
-import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +8,9 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.androiddevfinal_conaxapp.R;
+import com.example.androiddevfinal_conaxapp.items.LocationItem;
 
 import java.util.ArrayList;
 
