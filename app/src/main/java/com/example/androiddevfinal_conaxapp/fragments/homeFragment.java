@@ -7,6 +7,10 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.androiddevfinal_conaxapp.R;
 
@@ -61,6 +65,23 @@ public class homeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false);
+        View view = inflater.inflate(R.layout.fragment_home, container, false);
+
+        //Localize the title, description and image of home
+        TextView companyName = view.findViewById(R.id.CompanyName);
+        TextView aboutHeader = view.findViewById(R.id.about);
+        TextView aboutText = view.findViewById(R.id.aboutText);
+        ImageView homeImage = view.findViewById(R.id.homeImage);
+
+        //Grabs the animation
+        Animation scaleUp = AnimationUtils.loadAnimation(getContext(), R.anim.scale_up);
+
+        //Starts the animation for the scaling up
+        companyName.startAnimation(scaleUp);
+        aboutHeader.startAnimation(scaleUp);
+        aboutText.startAnimation(scaleUp);
+        homeImage.startAnimation(scaleUp);
+
+        return view;
     }
 }

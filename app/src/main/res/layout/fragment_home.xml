@@ -39,7 +39,7 @@
         android:textSize="@dimen/text_size" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/homeImage"
         android:layout_width="match_parent"
         android:layout_height="147dp"
         tools:src="@tools:sample/backgrounds/scenic" />
