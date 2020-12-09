@@ -11,6 +11,8 @@ import androidx.viewpager.widget.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 
 import com.example.androiddevfinal_conaxapp.R;
 import com.example.androiddevfinal_conaxapp.fragments.gamesFragment;
@@ -71,6 +73,9 @@ public class GameHostFragment extends Fragment {
         CustomGameViewPagerAdapter adapter = new CustomGameViewPagerAdapter(getChildFragmentManager());
         ViewPager viewPager = view.findViewById(R.id.gameHost);
         viewPager.setAdapter(adapter);
+
+        Animation scaleUp = AnimationUtils.loadAnimation(getContext(), R.anim.scale_up);
+        viewPager.startAnimation(scaleUp);
 
         return view;
     }

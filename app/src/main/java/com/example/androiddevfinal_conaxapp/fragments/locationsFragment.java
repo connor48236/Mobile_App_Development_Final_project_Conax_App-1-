@@ -9,6 +9,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 
 import com.example.androiddevfinal_conaxapp.Adapters.CustomLocationViewAdapter;
 import com.example.androiddevfinal_conaxapp.R;
@@ -86,6 +88,10 @@ public class locationsFragment extends Fragment {
 
         //Sets the adapter for the recyclerView
         recyclerView.setAdapter(new CustomLocationViewAdapter(locationItems));
+
+        Animation scaleUp = AnimationUtils.loadAnimation(getContext(), R.anim.scale_up);
+
+        recyclerView.startAnimation(scaleUp);
         return view;
     }
 }
