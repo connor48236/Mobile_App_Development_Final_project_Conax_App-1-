@@ -5,10 +5,12 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -155,6 +157,21 @@ public class settingsFragment extends Fragment {
                 navLinerLayout.setBackgroundColor(R.drawable.green_app_colour);
                 navigationView.setBackgroundColor(R.drawable.green_app_colour);
                 appBarLayout.setBackgroundColor(R.drawable.green_app_colour);
+            }
+        });
+
+        //Localize the userName and password
+        final EditText userName = view.findViewById(R.id.enterUserName);
+        EditText password = view.findViewById(R.id.TextUnputPassword);
+
+        //grabs the textView under Welcome to change to the users name
+        final TextView welcomeUserName = view.findViewById(R.id.usersName);
+
+        userName.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                welcomeUserName.setText(userName.getText());
+                return true;
             }
         });
 
