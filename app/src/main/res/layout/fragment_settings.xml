@@ -19,21 +19,25 @@
         android:textSize="@dimen/Title_size" />
 
     <TextView
-        android:id="@+id/Font_Size_Tex"
+        android:id="@+id/Font_Size_Text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:layout_weight="0"
         android:text="@string/font_size"
         android:textAlignment="center"
-        android:textSize="@dimen/header_size" />
+        android:textSize="@dimen/text_size" />
 
     <SeekBar
         android:id="@+id/fontSizeBar"
+        style="@android:style/Widget.Material.SeekBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:layout_weight="0" />
+        android:layout_weight="0"
+        android:max="50"
+        android:progress="25"
+        android:progressBackgroundTint="@color/red" />
 
     <TextView
         android:id="@+id/Colour_Picker_Text"

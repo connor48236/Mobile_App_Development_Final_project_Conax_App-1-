@@ -1,5 +1,6 @@
 package com.example.androiddevfinal_conaxapp.fragments;
 
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,8 +8,14 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.SeekBar;
+import android.widget.TextView;
 
 import com.example.androiddevfinal_conaxapp.R;
+import com.google.android.material.appbar.AppBarLayout;
+import com.google.android.material.navigation.NavigationView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -61,9 +68,95 @@ public class settingsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-         View view = inflater.inflate(R.layout.fragment_settings, container, false);
+         final View view = inflater.inflate(R.layout.fragment_settings, container, false);
+         //Localizes the seek bar to change the size of text
+        SeekBar textSizeBar = view.findViewById(R.id.fontSizeBar);
+
+        //All the textView for smallText text
+        final TextView seekBarText = view.findViewById(R.id.Font_Size_Text);
+        final TextView aboutText = view.findViewById(R.id.aboutText);
+        final TextView descriptionOfLocationText = view.findViewById(R.id.Description);
+        final TextView jobDescText = view.findViewById(R.id.jobDesc);
+        final TextView jobReqText = view.findViewById(R.id.jobReq);
 
 
+
+        textSizeBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                seekBarText.setTextSize(progress);
+
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                aboutText.setTextSize(seekBar.getScrollBarSize());
+                descriptionOfLocationText.setTextSize(seekBar.getScrollBarSize());
+                jobDescText.setTextSize(seekBar.getScrollBarSize());
+                jobReqText.setTextSize(seekBar.getScrollBarSize());
+            }
+        });
+
+        //Localizes the buttons to change the app colour
+        Button redButton = view.findViewById(R.id.RedButton);
+        Button blueButton = view.findViewById(R.id.BlueButton);
+        Button yellowButton = view.findViewById(R.id.YellowButton);
+        Button greenButton = view.findViewById(R.id.GreenButton);
+
+        //grabs all the background to change
+        final LinearLayout navLinerLayout = view.findViewById(R.id.nav_liner_layout);
+        final NavigationView navigationView = view.findViewById(R.id.nav_view);
+        final AppBarLayout appBarLayout = view.findViewById(R.id.appBarLayout);
+
+        //When the red button is pressed
+        redButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Sets the backgrounds to the red_app_colour.xml
+                navLinerLayout.setBackgroundColor(R.drawable.red_app_colour);
+                navigationView.setBackgroundColor(R.drawable.red_app_colour);
+                appBarLayout.setBackgroundColor(R.drawable.red_app_colour);
+            }
+        });
+
+        //When the blue button is pressed
+        blueButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Sets the backgrounds to the blue_app_colour.xml
+                navLinerLayout.setBackgroundColor(R.drawable.blue_app_colour);
+                navigationView.setBackgroundColor(R.drawable.blue_app_colour);
+                appBarLayout.setBackgroundColor(R.drawable.blue_app_colour);
+            }
+        });
+
+        //When the yellow button is pressed
+        yellowButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Sets the backgrounds to the yellow_app_colour.xml
+                navLinerLayout.setBackgroundColor(R.drawable.yellow_app_colour);
+                navigationView.setBackgroundColor(R.drawable.yellow_app_colour);
+                appBarLayout.setBackgroundColor(R.drawable.yellow_app_colour);
+            }
+        });
+
+        //When the green button is pressed
+        greenButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Sets all the backgrounds to the green_app_colour.xml
+                navLinerLayout.setBackgroundColor(R.drawable.green_app_colour);
+                navigationView.setBackgroundColor(R.drawable.green_app_colour);
+                appBarLayout.setBackgroundColor(R.drawable.green_app_colour);
+            }
+        });
 
          return view;
     }
