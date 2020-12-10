@@ -5,37 +5,49 @@
     android:orientation="vertical">
 
 
-    <TextView
-        android:id="@+id/jobTitle"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="64dp"
-        android:layout_gravity="center"
-        android:layout_margin="10dp"
-        android:layout_weight="0"
-        android:text="TextView"
-        android:textAlignment="center"
-        android:textSize="@dimen/Title_size" />
+        android:layout_height="match_parent"
+        android:layout_weight="0">
 
-    <TextView
-        android:id="@+id/jobDesc"
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:layout_gravity="center"
-        android:layout_margin="10dp"
-        android:layout_weight="0"
-        android:text="TextView"
-        android:textAlignment="textStart"
-        android:textSize="@dimen/text_size" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
 
-    <TextView
-        android:id="@+id/jobReq"
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:layout_gravity="center"
-        android:layout_margin="10dp"
-        android:layout_weight="0"
-        android:text="TextView"
-        android:textAlignment="textStart"
-        android:textSize="@dimen/text_size" />
+            <TextView
+                android:id="@+id/jobTitle"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:layout_weight="0"
+                android:text="TextView"
+                android:textAlignment="center"
+                android:textSize="@dimen/Title_size" />
+
+            <TextView
+                android:id="@+id/jobDesc"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:layout_weight="0"
+                android:text="TextView"
+                android:textAlignment="textStart"
+                android:textSize="@dimen/text_size" />
+
+            <TextView
+                android:id="@+id/jobReq"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:layout_weight="0"
+                android:text="TextView"
+                android:textAlignment="textStart"
+                android:textSize="@dimen/text_size" />
+        </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>

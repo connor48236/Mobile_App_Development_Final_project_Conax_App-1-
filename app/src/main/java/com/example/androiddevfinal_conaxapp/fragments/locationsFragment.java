@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.TextView;
 
 import com.example.androiddevfinal_conaxapp.Adapters.CustomLocationViewAdapter;
 import com.example.androiddevfinal_conaxapp.R;
@@ -71,9 +72,6 @@ public class locationsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
-        //final SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getContext());
-        //final String textSize = preferences.getInt("", 18);
 
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_locations, container, false);

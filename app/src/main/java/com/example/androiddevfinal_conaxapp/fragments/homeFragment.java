@@ -69,6 +69,7 @@ public class homeFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
+        //Localizes the preferences and grabs the one needed based on key
         final SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getContext());
         final String textSize = preferences.getString("font_size", "18");
         int text_size_value = Integer.parseInt(textSize);
@@ -79,6 +80,7 @@ public class homeFragment extends Fragment {
         TextView aboutText = view.findViewById(R.id.aboutText);
         ImageView homeImage = view.findViewById(R.id.homeImage);
 
+        //Set the about set to the size on preferences
         aboutText.setTextSize(text_size_value);
 
         homeImage.setImageResource(R.drawable.conax_office);

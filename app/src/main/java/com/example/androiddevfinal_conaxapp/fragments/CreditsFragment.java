@@ -9,6 +9,7 @@ import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.androiddevfinal_conaxapp.R;
 
@@ -65,11 +66,14 @@ public class CreditsFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_credits, container, false);
 
-        
-
+        //Localizes the preferences and grabs the one needed based on key
         final SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getContext());
         final String textSize = preferences.getString("font_size", "18");
         int text_size_value = Integer.parseInt(textSize);
+
+        //Grabs the credits text and sets the size based on Preferences
+        TextView creditsText = view.findViewById(R.id.creditsText);
+        creditsText.setTextSize(text_size_value);
 
         return view;
     }

@@ -2,12 +2,14 @@ package com.example.androiddevfinal_conaxapp.fragments;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -141,6 +143,8 @@ public class jobsFragment extends Fragment {
         emailButton.startAnimation(scaleUp);
 
 
+
+
         return view;
     }
 
@@ -169,6 +173,15 @@ public class jobsFragment extends Fragment {
                 //This sets the requirements to the requirements for that job based on position
                 TextView jobReq = convertView.findViewById(R.id.jobReq);
                 jobReq.setText(getItem(position).getExperience());
+
+                //Localizes the preferences and grabs the one needed based on key
+                final SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getContext());
+                final String textSize = preferences.getString("font_size", "18");
+                int text_size_value = Integer.parseInt(textSize);
+
+                //Sets the jobDesc and Req to the text size from preferences
+                jobDesc.setTextSize(text_size_value);
+                jobReq.setTextSize(text_size_value);
 
             }
             return convertView;

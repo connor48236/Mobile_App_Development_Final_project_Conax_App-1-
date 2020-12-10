@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <PreferenceCategory android:title="@string/font_size">
+    <PreferenceCategory android:title="@string/settings">
 
         <ListPreference
             android:entries="@array/text_sizes_options"
             android:entryValues="@array/text_sizes_values"
             android:key="font_size"
-            android:title="List preference" />
+            android:title="@string/font_size" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/colour_picker">
+
     </PreferenceCategory>
 </PreferenceScreen>
