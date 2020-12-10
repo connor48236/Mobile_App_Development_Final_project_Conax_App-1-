@@ -27,6 +27,11 @@
             android:icon="@drawable/ic_baseline_settings_24"
             android:title="@string/settings" />
 
+        <item
+            android:id="@+id/creditsFragment"
+            android:icon="@drawable/ic_baseline_create_24"
+            android:title="Credits" />
+
 
     </group>
 </menu>

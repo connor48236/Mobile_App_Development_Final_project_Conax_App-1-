@@ -29,4 +29,9 @@
         android:name="com.example.androiddevfinal_conaxapp.fragments.settingsFragment"
         android:label="settings"
         tools:layout="@layout/fragment_settings" />
+    <fragment
+        android:id="@+id/creditsFragment"
+        android:name="com.example.androiddevfinal_conaxapp.fragments.CreditsFragment"
+        android:label="@string/credits"
+        tools:layout="@layout/fragment_credits" />
 </navigation>
