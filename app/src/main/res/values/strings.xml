@@ -1,3 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+
 <resources>
     <string name="app_name">AndroidDevFinal_ConaxApp</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
@@ -22,7 +24,7 @@
 
     <string name="company_name">Conax Inc</string>
     <string name="about">About Conax</string>
-    <string name="about_text">"Conax is a video game development company founded by Connor Cozad and Max Lombardi. Conax has been in the game development business for about 10 years now and has made some of the most renowned titles in gaming history such as Universe Wars, The Land of Asuke, The legend of the wise one and pirates of cuba. Conax is a amazing company with some amazing exprince under there belts if you would like to join there team check out the job section otherwise please checkout our locations page and games page. You my also subscribe to our mailing list to get all the gaming news"</string>
+    <string name="about_text">Conax is a video game development company founded by Connor Cozad and Max Lombardi. Conax has been in the game development business for about 10 years now and has made some of the most renowned titles in gaming history such as Universe Wars, The Land of Asuke, The legend of the wise one and pirates of cuba. Conax is a amazing company with some amazing exprince under there belts if you would like to join there team check out the job section otherwise please checkout our locations page and games page. You my also subscribe to our mailing list to get all the gaming news</string>
 
     <string name="font_size">Change Font Size For Small Text</string>
     <string name="colour_picker">Colour Picker</string>
@@ -39,6 +41,20 @@
     <string name="blue">Blue</string>
     <string name="yellow">Yellow</string>
     <string name="green">Green</string>
+
+    <string name="creditsText">
+            <b>Game Pictures</b> \n
+        *Wise one picture "pendleburyannette From PixaBay" \n
+        *Pirates of cuba picture "Zoltan Tasi from Unsplash" \n
+        *Universe Wars picture "Guillermo Ferla From Unsplash" \n
+        *the Land of asuke picture "Bryson Hammer From Unsplash" \n
+
+            <b>Office</b> Pictures \n
+        *London Office picture "Remedios Remón on Unsplash" \n
+        *Los Angles office picture "Eric Sharp on Unsplash" \n
+        *Montreal office picture "Oakville News on Unsplash" \n
+        *Tokyo office Picture "Erik Mclean on Unsplash"
+    </string>
 
 
 </resources>
