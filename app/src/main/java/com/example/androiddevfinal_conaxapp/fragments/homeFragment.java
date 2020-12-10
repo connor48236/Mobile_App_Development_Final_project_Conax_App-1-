@@ -1,9 +1,11 @@
 package com.example.androiddevfinal_conaxapp.fragments;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -67,11 +69,19 @@ public class homeFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
+        final SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getContext());
+        final String textSize = preferences.getString("font_size", "18");
+        int text_size_value = Integer.parseInt(textSize);
+
         //Localize the title, description and image of home
         TextView companyName = view.findViewById(R.id.CompanyName);
         TextView aboutHeader = view.findViewById(R.id.about);
         TextView aboutText = view.findViewById(R.id.aboutText);
         ImageView homeImage = view.findViewById(R.id.homeImage);
+
+        aboutText.setTextSize(text_size_value);
+
+        homeImage.setImageResource(R.drawable.conax_office);
 
         //Grabs the animation
         Animation scaleUp = AnimationUtils.loadAnimation(getContext(), R.anim.scale_up);

@@ -50,8 +50,8 @@
             <ImageView
                 android:id="@+id/homeImage"
                 android:layout_width="match_parent"
-                android:layout_height="147dp"
-                tools:src="@tools:sample/backgrounds/scenic" />
+                android:layout_height="180dp"
+                tools:src="@drawable/conax_office" />
         </LinearLayout>
     </ScrollView>
 

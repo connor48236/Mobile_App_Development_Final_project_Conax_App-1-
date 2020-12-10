@@ -1,9 +1,11 @@
 package com.example.androiddevfinal_conaxapp.fragments;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -62,6 +64,12 @@ public class CreditsFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_credits, container, false);
+
+        
+
+        final SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getContext());
+        final String textSize = preferences.getString("font_size", "18");
+        int text_size_value = Integer.parseInt(textSize);
 
         return view;
     }
