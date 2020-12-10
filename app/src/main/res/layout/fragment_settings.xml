@@ -118,14 +118,14 @@
         android:text="@string/user_name" />
 
     <EditText
-        android:id="@+id/TextUnputPassword"
+        android:id="@+id/usersEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:layout_weight="0"
         android:ems="10"
-        android:hint="@string/password"
-        android:inputType="textPassword" />
+        android:inputType="textPersonName"
+        android:text="@string/email" />
 
     <ImageView
         android:id="@+id/userImage"
@@ -134,5 +134,13 @@
         android:layout_margin="10dp"
         android:layout_weight="0"
         tools:src="@tools:sample/avatars" />
+
+    <CheckBox
+        android:id="@+id/checkBoxForMailingList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_weight="0"
+        android:text="@string/subscribeToOurMailingList" />
 
 </LinearLayout>

@@ -1,6 +1,8 @@
 package com.example.androiddevfinal_conaxapp.fragments;
 
+import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -12,6 +14,7 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.SeekBar;
@@ -20,6 +23,7 @@ import android.widget.TextView;
 import com.example.androiddevfinal_conaxapp.R;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.snackbar.Snackbar;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -164,23 +168,37 @@ public class settingsFragment extends Fragment {
 
         //Localize the userName and password
         final EditText userName = view.findViewById(R.id.enterUserName);
-        EditText password = view.findViewById(R.id.TextUnputPassword);
+        final EditText usersEmail = view.findViewById(R.id.usersEmail);
 
         //grabs the textView under Welcome to change to the users name
         final TextView welcomeUserName = view.findViewById(R.id.usersName);
 
-        userName.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-            @Override
-            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                welcomeUserName.setText(userName.getText());
-                return true;
-            }
-        });
 
         Animation scaleUp = AnimationUtils.loadAnimation(getContext(), R.anim.scale_up);
         view.startAnimation(scaleUp);
 
+        //checkbox for mailing list
+        final CheckBox mailingListBox = view.findViewById(R.id.checkBoxForMailingList);
 
+
+        //When the box is checked the app will email the user based on there email entered
+        mailingListBox.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String[] emailAddresses = {usersEmail.getText().toString()};
+                Intent intent = new Intent(Intent.ACTION_SENDTO);
+                intent.setData(Uri.parse("mailto:"));
+                intent.putExtra(Intent.EXTRA_EMAIL, emailAddresses);
+                intent.putExtra(Intent.EXTRA_SUBJECT, "Welcome to the Mailing list");
+                intent.putExtra(Intent.EXTRA_TEXT, "Hello " + userName.getText().toString() + ", Welcome to the Conax mailing list from now on you will receive all the latest gaming updates and news " +
+                        "from our company.");
+                if (intent.resolveActivity(getActivity().getPackageManager()) != null) {
+                    startActivity(intent);
+                } else {
+                    Snackbar.make(getView(), "No Email App Found", Snackbar.LENGTH_SHORT).show();
+                }
+            }
+        });
 
          return view;
     }
