@@ -14,5 +14,19 @@
         <item>16</item>
     </string-array>
 
+    <string-array name="colour_options">
+        <item>Red</item>
+        <item>Blue</item>
+        <item>Yellow</item>
+        <item>Green</item>
+    </string-array>
+
+    <string-array name="colour_values">
+        <item>R.drawable.red_app_colour</item>
+        <item>R.drawable.blue_app_colour</item>
+        <item>R.drawable.yellow_app_colour</item>
+        <item>R.drawable.green_app_colour</item>
+    </string-array>
+
 
 </resources>

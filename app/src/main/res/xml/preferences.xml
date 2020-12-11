@@ -1,15 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <PreferenceCategory android:title="@string/settings">
+    <PreferenceCategory
+        android:padding="10dp"
+        android:title="@string/settings">
 
         <ListPreference
             android:entries="@array/text_sizes_options"
             android:entryValues="@array/text_sizes_values"
             android:key="font_size"
+            android:padding="10dp"
             android:title="@string/font_size" />
-    </PreferenceCategory>
-    <PreferenceCategory android:title="@string/colour_picker">
-
+        <ListPreference
+            android:entries="@array/colour_options"
+            android:entryValues="@array/colour_values"
+            android:key="colour_picker"
+            android:padding="10dp"
+            android:title="@string/colour_picker" />
+        <EditTextPreference
+            android:key="user_name"
+            android:padding="10dp"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="@string/user_name" />
+        <EditTextPreference
+            android:key="user_email"
+            android:padding="10dp"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="@string/email" />
     </PreferenceCategory>
 </PreferenceScreen>

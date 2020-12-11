@@ -9,6 +9,8 @@ import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 
 import com.example.androiddevfinal_conaxapp.R;
@@ -72,8 +74,16 @@ public class CreditsFragment extends Fragment {
         int text_size_value = Integer.parseInt(textSize);
 
         //Grabs the credits text and sets the size based on Preferences
+        TextView creditsTitle = view.findViewById(R.id.creditsTitle);
         TextView creditsText = view.findViewById(R.id.creditsText);
         creditsText.setTextSize(text_size_value);
+
+        //Grabs the animation
+        Animation scaleUp = AnimationUtils.loadAnimation(getContext(), R.anim.scale_up);
+
+        //Starts the scale up animation
+        creditsTitle.startAnimation(scaleUp);
+        creditsText.startAnimation(scaleUp);
 
         return view;
     }

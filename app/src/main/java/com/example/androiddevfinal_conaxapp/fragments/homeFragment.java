@@ -1,5 +1,6 @@
 package com.example.androiddevfinal_conaxapp.fragments;
 
+import android.app.Application;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
@@ -7,6 +8,7 @@ import androidx.fragment.app.Fragment;
 
 import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
@@ -75,7 +77,7 @@ public class homeFragment extends Fragment {
         int text_size_value = Integer.parseInt(textSize);
 
         //Localize the title, description and image of home
-        TextView companyName = view.findViewById(R.id.CompanyName);
+        final TextView companyName = view.findViewById(R.id.CompanyName);
         TextView aboutHeader = view.findViewById(R.id.about);
         TextView aboutText = view.findViewById(R.id.aboutText);
         ImageView homeImage = view.findViewById(R.id.homeImage);
@@ -83,16 +85,28 @@ public class homeFragment extends Fragment {
         //Set the about set to the size on preferences
         aboutText.setTextSize(text_size_value);
 
+
         homeImage.setImageResource(R.drawable.conax_office);
 
         //Grabs the animation
-        Animation scaleUp = AnimationUtils.loadAnimation(getContext(), R.anim.scale_up);
+        final Animation scaleUp = AnimationUtils.loadAnimation(getContext(), R.anim.scale_up);
+        final Animation boostUp = AnimationUtils.loadAnimation(getContext(), R.anim.bounce_up);
 
         //Starts the animation for the scaling up
         companyName.startAnimation(scaleUp);
         aboutHeader.startAnimation(scaleUp);
         aboutText.startAnimation(scaleUp);
         homeImage.startAnimation(scaleUp);
+
+        companyName.setOnHoverListener(new View.OnHoverListener() {
+            @Override
+            public boolean onHover(View v, MotionEvent event) {
+                if (event.getAction() == MotionEvent.ACTION_HOVER_ENTER) {
+                    companyName.startAnimation(boostUp);
+                }
+                return false;
+            }
+        });
 
         return view;
     }

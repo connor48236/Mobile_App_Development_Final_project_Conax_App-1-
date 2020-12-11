@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment;
 import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
@@ -118,7 +119,7 @@ public class jobsFragment extends Fragment {
         });
 
         //This will find and set up the email button for the job
-        Button emailButton = view.findViewById(R.id.jobEmail);
+        final Button emailButton = view.findViewById(R.id.jobEmail);
         //On click of the button it will bring you to email about the job
         emailButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -141,8 +142,6 @@ public class jobsFragment extends Fragment {
 
         listView.startAnimation(scaleUp);
         emailButton.startAnimation(scaleUp);
-
-
 
 
         return view;
@@ -182,6 +181,8 @@ public class jobsFragment extends Fragment {
                 //Sets the jobDesc and Req to the text size from preferences
                 jobDesc.setTextSize(text_size_value);
                 jobReq.setTextSize(text_size_value);
+
+
 
             }
             return convertView;

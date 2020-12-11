@@ -172,7 +172,7 @@ public class settingsFragment extends Fragment {
         final EditText usersEmail = view.findViewById(R.id.usersEmail);
 
         //grabs the textView under Welcome to change to the users name
-        final TextView welcomeUserName = view.findViewById(R.id.usersName);
+        //final TextView welcomeUserName = view.findViewById(R.id.usersName);
 
 
         Animation scaleUp = AnimationUtils.loadAnimation(getContext(), R.anim.scale_up);
