@@ -1,17 +1,21 @@
 package com.example.androiddevfinal_conaxapp;
 
 import android.content.ClipData;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.util.AttributeSet;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.Menu;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.CheckBox;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -19,6 +23,7 @@ import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -27,7 +32,11 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
+import java.util.zip.Inflater;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -42,44 +51,16 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         //Finds and pulls the colour_picker
         String appColour = preferences.getString("colour_picker", "red_app_colour");
-        Drawable colour = Drawable.createFromPath(appColour);
+        String colour = appColour;
 
-        drawer.setBackground(colour);
+        //gets the id of the drawable
+        int drawId = this.getResources().getIdentifier(colour, "drawable", this.getPackageName());
+        //sets the background of drawer to drawId
+        drawer.setBackground(getDrawable(drawId));
 
-        //Finds and pulls the users name
-//        final String userName = preferences.getString("user_name", "user");
-//
-//        TextView displayUsersName = findViewById(R.id.usersName);
-//
-//        if (userName != null){
-//            displayUsersName.setText(userName);
-//        }else {
-//            displayUsersName.setText("user");
-//        }
 
-        //Switch based on the item the user chooses
-
-//        switch (appColour) {
-//            case "1":
-//                drawer.setBackground(null);
-//                drawer.setBackground(getDrawable(R.drawable.red_app_colour));
-//                System.out.println("Test");
-//            case "2":
-//                drawer.setBackground(null);
-//                drawer.setBackground(getDrawable(R.drawable.blue_app_colour));
-//                System.out.println("Test");
-//            case "3":
-//                drawer.setBackground(null);
-//                drawer.setBackground(getDrawable(R.drawable.yellow_app_colour));
-//                System.out.println("Test");
-//            case "4":
-//                drawer.setBackground(null);
-//                drawer.setBackground(getDrawable(R.drawable.green_app_colour));
-//                System.out.println("Test");
-//            default:
-//                drawer.setBackground(getDrawable(R.drawable.red_app_colour));
-//        }
     }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -93,61 +74,23 @@ public class MainActivity extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.homeFragment, R.id.locationsFragment, R.id.gameHost, R.id.jobsFragment, R.id.settingsFragment, R.id.creditsFragment)
+                R.id.homeFragment, R.id.locationsFragment, R.id.gameHost, R.id.jobsFragment, R.id.creditsFragment)
                 .setDrawerLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
 
-        //Localizes the preferences and grabs the one needed based on key
-        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-        //Finds and pulls the colour_picker
-        String appColour = preferences.getString("colour_picker", "1");
-
-        drawer.setBackground(Drawable.createFromPath("blue_app_colour.xml"));
-
-
-
-
-
-
-//        //Finds and pulls the users name
-//        //final String userName = preferences.getString("user_name", "user");
+//        //Localizes the preferences and grabs the one needed based on key
+//        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
 //
-//        //TextView displayUsersName = findViewById(R.id.usersName);
+//        //Checks for mailing list sub
+//        final Boolean mailingList = preferences.getBoolean("subToMailingList", false);
+//        Boolean checkIfInMailingList = mailingList;
 //
-//        if (userName != null){
-//            displayUsersName.setText(userName);
-//        }else {
-//            displayUsersName.setText("user");
+//        if (checkIfInMailingList.equals(true)){
+//            Snackbar.make(getCurrentFocus(),"You have subscribed to the mailing list", Snackbar.LENGTH_LONG).show();
 //        }
-
-        //Switch based on the item the user chooses
-
-//        switch (appColour) {
-//            case "1":
-//                drawer.setBackground(null);
-//                drawer.setBackground(getDrawable(R.drawable.red_app_colour));
-//                System.out.println("Test");
-//            case "2":
-//                drawer.setBackground(null);
-//                drawer.setBackground(getDrawable(R.drawable.blue_app_colour));
-//                System.out.println("Test");
-//            case "3":
-//                drawer.setBackground(null);
-//                drawer.setBackground(getDrawable(R.drawable.yellow_app_colour));
-//                System.out.println("Test");
-//            case "4":
-//                drawer.setBackground(null);
-//                drawer.setBackground(getDrawable(R.drawable.green_app_colour));
-//                System.out.println("Test");
-//            default:
-//                drawer.setBackground(getDrawable(R.drawable.red_app_colour));
-//        }
-
-
-
     }
 
 
@@ -155,6 +98,29 @@ public class MainActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
+
+        //Localizes the preferences and grabs the one needed based on key
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+
+        //Finds and pulls the users name
+        final String userName = preferences.getString("user_name", "user");
+        String nameOfUser = userName;
+
+
+        TextView displayUsersName = findViewById(R.id.usersName);
+        displayUsersName.setText(nameOfUser);
+
+        //Finds and pulls the users image
+        String usersImage = preferences.getString("ImageOfUser", "ic_baseline_tag_faces_24");
+        String stringOfUsersImage = usersImage;
+
+        //Gets the id of the image entered
+        int imgId = this.getResources().getIdentifier(stringOfUsersImage, "drawable", this.getPackageName());
+
+        //Grabs the placement for the users image
+        ImageView imageUser = findViewById(R.id.usersImage);
+        imageUser.setImageResource(imgId);
+
         return true;
     }
 

@@ -25,11 +25,6 @@
         android:label="Jobs"
         tools:layout="@layout/fragment_jobs" />
     <fragment
-        android:id="@+id/settingsFragment"
-        android:name="com.example.androiddevfinal_conaxapp.fragments.settingsFragment"
-        android:label="settings"
-        tools:layout="@layout/fragment_settings" />
-    <fragment
         android:id="@+id/creditsFragment"
         android:name="com.example.androiddevfinal_conaxapp.fragments.CreditsFragment"
         android:label="@string/credits"

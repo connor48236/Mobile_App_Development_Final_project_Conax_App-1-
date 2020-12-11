@@ -35,7 +35,8 @@
     <string name="welcome_back">Welcome Back</string>
     <string name="user">User</string>
     <string name="email">Email</string>
-    <string name="subscribeToOurMailingList">Subscribe to our mailing list to revive all the latest game updates and deals</string>
+    <string name="enterImageName">Enter Image name</string>
+    <string name="subscribeToOurMailingList">Subscribe to our mailing list</string>
 
     <string name="red">Red</string>
     <string name="blue">Blue</string>

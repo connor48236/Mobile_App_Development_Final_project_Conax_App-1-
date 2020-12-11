@@ -22,10 +22,10 @@
     </string-array>
 
     <string-array name="colour_values">
-        <item>R.drawable.red_app_colour</item>
-        <item>R.drawable.blue_app_colour</item>
-        <item>R.drawable.yellow_app_colour</item>
-        <item>R.drawable.green_app_colour</item>
+        <item>red_app_colour</item>
+        <item>blue_app_colour</item>
+        <item>yellow_app_colour</item>
+        <item>green_app_colour</item>
     </string-array>
 
 
